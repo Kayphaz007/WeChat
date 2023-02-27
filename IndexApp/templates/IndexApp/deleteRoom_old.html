@@ -1,0 +1,17 @@
+{% if page == 'room' %}
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Do you want to delete "{{room.name}}" Room</p>
+    <a href="{{request.META.HTTP_REFERER}}">NO</a> 
+    <input type="submit" value="YES"">
+</form>
+
+{% elif page == 'comments' %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Do you want to delete "{{comment.body}}"</p>
+    <a href="{{request.META.HTTP_REFERER}}">NO</a> 
+    <input type="submit" value="YES"">
+</form>
+{% endif %}

@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<main class="layout layout--3">
+  <div class="container">
+    <!-- Topics Start -->
+    {% include 'IndexApp/home_topic_component.html' %}
+    <!-- Topics End -->
+
+        <!-- Room List Start -->
+        {% include 'IndexApp/home_feed_component.html' %}
+        <!-- Room List End -->
+
+        <!-- Activities Start -->
+        {% include 'IndexApp/home_activity_component.html' %}
+        <!-- Activities End -->
+      </div>
+</main>
+{% endblock %}

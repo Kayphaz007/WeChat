@@ -1,0 +1,56 @@
+<!-- <h3>Activity Feed</h3>
+            <hr>
+            {% for comment in comments %}
+            <p><small><a href="{% url 'userProfile' comment.user.id %}">@{{comment.user.username}}</a> replied to "{{comment.room.name}}" room</small><i>&emsp;</i><small>{{comment.created|timesince}} ago</small></p>
+            <p>{{comment.body|truncatewords:5}}</p>
+            {% if comment.user == request.user %}
+            <p><a href="">Edit</a><i>&emsp;</i><a href="{% url 'delete_comment' comment.id %}">Delete</a></p>
+            {% endif %}
+            <hr>
+            {% endfor %} -->
+
+
+
+
+
+<!-- Activities Start -->
+<div class="activities">
+    <div class="activities__header">
+      <h2>Recent Activities</h2>
+    </div>
+    {% for comment in comments %}
+    <div class="activities__box">
+      <div class="activities__boxHeader roomListRoom__header">
+        <a href="{% url 'userProfile' comment.user.id %}" class="roomListRoom__author">
+          <div class="avatar avatar--small">
+            <img src="https://randomuser.me/api/portraits/women/11.jpg" />
+          </div>
+          <p>
+            @{{comment.user.username}}
+            <span>{{comment.created|timesince|truncatewords:2}} ago</span>
+          </p>
+        </a>
+        <div class="roomListRoom__actions">
+            {% if comment.user == request.user %}
+          <a href="{% url 'delete_comment' comment.id %}">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+              <title>remove</title>
+              <path
+                d="M27.314 6.019l-1.333-1.333-9.98 9.981-9.981-9.981-1.333 1.333 9.981 9.981-9.981 9.98 1.333 1.333 9.981-9.98 9.98 9.98 1.333-1.333-9.98-9.98 9.98-9.981z"
+              ></path>
+            </svg>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="activities__boxContent">
+        <p>replied to post “<a href="{% url 'room' comment.room.id%}">{{comment.room.name}}</a>”</p>
+        <div class="activities__boxRoomContent">
+            {{comment.body|truncatewords:10}}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+  <!-- Activities End -->
