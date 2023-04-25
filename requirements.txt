@@ -18,6 +18,7 @@ psycopg2-binary==2.9.5
 pytz==2022.6
 sqlparse==0.4.3
 virtualenv==20.16.3
+whitenoise==6.4.0
 zope.component==5.0.1
 zope.deferredimport==4.4
 zope.deprecation==4.4.0
